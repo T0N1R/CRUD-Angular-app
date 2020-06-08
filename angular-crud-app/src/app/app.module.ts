@@ -8,6 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { InsertPersonComponent } from './insert-person/insert-person.component';
 import { HomeComponent } from './home/home.component';
 import { DeletePersonComponent } from './delete-person/delete-person.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DeletePersonComponent } from './delete-person/delete-person.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
