@@ -1,0 +1,14 @@
+mat-sidenav-container{
+  height: 100%;
+}
+
+mat-sidenav {
+  background-color: #FFC200;
+  width: 200px;
+}
+
+mat-icon {
+  vertical-align: -5px;
+  horiz-align: center;
+  cursor: pointer;
+}

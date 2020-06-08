@@ -9,6 +9,16 @@ import { InsertPersonComponent } from './insert-person/insert-person.component';
 import { HomeComponent } from './home/home.component';
 import { DeletePersonComponent } from './delete-person/delete-person.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {FormsModule} from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -22,7 +32,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    FormsModule,
+    MatIconModule,
+    MatTableModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
