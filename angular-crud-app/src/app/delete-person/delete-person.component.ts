@@ -9,7 +9,6 @@ import {HttpClient} from '@angular/common/http';
 export class DeletePersonComponent implements OnInit {
 
   readonly ROOT_URL = '/hello/persons';
-  readonly ROOT_DELETE = '/hello/persons/ce9cdafa-03f9-4db1-bf9c-7894ee8c2c4a';
 
   personsList = [{idPersona: null, nombrePersona: '-', apellidoPersona: '-', fechaNacimiento: '-'}];
 
@@ -35,7 +34,6 @@ export class DeletePersonComponent implements OnInit {
     console.log('-----');
     const value = idBorrar.substring(0, 36);
     console.log(value);
-    console.log(this.ROOT_DELETE);
     // this.http.delete<void>(`${this.ROOT_URL}/${value}`);
     return this.http.delete(`${this.ROOT_URL}/${value}`).toPromise().then(data => {
       this.getPersons();

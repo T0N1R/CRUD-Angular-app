@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class SearchPersonComponent implements OnInit {
 
-  readonly ROOT_URL = 'http://localhost:8080/hello/persons';
+  readonly ROOT_URL = '/hello/persons';
 
   personsList = [{idPersona: null, nombrePersona: '-', apellidoPersona: '-', fechaNacimiento: '-'}];
 

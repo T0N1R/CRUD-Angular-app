@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 export class InsertPersonComponent implements OnInit {
 
   startDate: any;
-  readonly ROOT_URL = 'http://localhost:8080/hello/persons';
+  readonly ROOT_URL = '/hello/persons';
 
   constructor(private http: HttpClient) { }
 
