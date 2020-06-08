@@ -1,1 +1,38 @@
-<p>search-person works!</p>
+<h1 class="container">Tabla con todas las personas</h1>
+
+<button mat-raised-button (click)="getPersons()" color="warn" class="boton">Todos</button>
+<br>
+<button mat-raised-button (click)="getPersons()" color="warn" class="boton">Buscar por id</button>
+
+<br>
+
+<div class="container">
+
+  <div class="inContainer">
+
+    <table class="tabla">
+      <thead>
+      <tr>
+        <th scope="col">Índice</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">ID</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let person of personsList; index as i">
+        <th scope="row">{{i + 1}}</th>
+        <th scope="row">{{person.nombrePersona}}</th>
+        <th scope="row">{{person.apellidoPersona}}</th>
+        <th scope="row">{{person.fechaNacimiento}}</th>
+        <th scope="row">{{person.idPersona}}</th>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+

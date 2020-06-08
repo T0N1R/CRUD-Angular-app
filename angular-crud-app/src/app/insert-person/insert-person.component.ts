@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-insert-person',
@@ -7,7 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsertPersonComponent implements OnInit {
 
-  constructor() { }
+  startDate: any;
+  readonly ROOT_URL = 'http://localhost:8080/hello/persons';
+
+  constructor(private http: HttpClient) { }
+
+  insertPerson(newNombre: string, newApellido: string, newFecha: string){
+    console.log(newNombre, newApellido, newFecha);
+
+    const postData = {
+      nombre: newNombre,
+      apellido: newApellido,
+      nacimiento: newFecha
+    };
+
+    this.http.post(this.ROOT_URL, postData).toPromise().then(
+      data => {
+        console.log('se ha ingresado una persona');
+      }
+    );
+  }
 
   ngOnInit(): void {
   }

@@ -1,1 +1,45 @@
-<p>delete-person works!</p>
+<h1 class="container">Borrar Persona</h1>
+
+<div class="otrocontainer">
+  <form class="example-form">
+    <p>
+      <mat-form-field class="example-full-width"  >
+        <mat-label>Ingresa el ID para borrar</mat-label>
+        <input matInput #idBorrar>
+      </mat-form-field>
+    </p>
+  </form>
+  <br>
+  <button mat-raised-button color="accent" (click)="deletePerson(idBorrar.value)" >Ingresar</button>
+</div>
+
+<div class="container">
+
+  <div class="inContainer">
+
+    <table class="tabla">
+      <thead>
+      <tr>
+        <th scope="col">Índice</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">ID</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let person of personsList; index as i">
+        <th scope="row">{{i + 1}}</th>
+        <th scope="row">{{person.nombrePersona}}</th>
+        <th scope="row">{{person.apellidoPersona}}</th>
+        <th scope="row">{{person.fechaNacimiento}}</th>
+        <th scope="row">{{person.idPersona}}</th>
+        <th scope="row"><mat-icon (click)="deletePerson(person.idPersona)">delete</mat-icon></th>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

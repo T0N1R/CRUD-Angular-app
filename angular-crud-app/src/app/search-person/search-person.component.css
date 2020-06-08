@@ -1,0 +1,35 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.inContainer{
+  display: block;
+  align-content: center;
+  align-items: center;
+}
+
+.boton{
+  width: 200px;
+  display: flex;
+  margin: 0 auto;
+  align-content: center;
+  justify-content: center;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 3px;
+}
+

@@ -1,0 +1,40 @@
+.otrocontainer {
+  text-align: center;
+  margin-bottom: 2%;
+}
+form {
+  display: inline-block;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.inContainer{
+  display: block;
+  align-content: center;
+  align-items: center;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 3px;
+}
+
+mat-icon {
+  cursor: pointer;
+  color: #a70e0e;
+}
+
