@@ -1,4 +1,6 @@
 <h1 class="container">Tabla con todas las personas</h1>
+<button mat-raised-button (click)="getPersons()" color="warn" class="botonTodos">Mostrar Todos</button>
+<br>
 
 <div class="container">
   <form class="example-form">
@@ -13,21 +15,22 @@
         <mat-label>Nombre</mat-label>
         <input matInput #inputNombre>
       </mat-form-field>
-      <button mat-raised-button (click)="getPersons()" color="warn" class="boton">Buscar Nombre</button>
+      <button mat-raised-button (click)="getPersonByName(inputNombre.value)" color="warn" class="boton">Buscar Nombre</button>
       <br>
       <mat-form-field class="example-full-width">
         <mat-label>Apellido</mat-label>
         <input matInput #inputApellido>
       </mat-form-field>
-      <button mat-raised-button (click)="getPersons()" color="warn" class="boton">Buscar Apellido</button>
+      <button mat-raised-button (click)="getPersonByLastName(inputApellido.value)" color="warn" class="boton">Buscar Apellido</button>
       <br>
       <mat-form-field class="example-full-width">
         <mat-label>Fecha de Nacimiento</mat-label>
         <input matInput #inputFecha>
       </mat-form-field>
-      <button mat-raised-button (click)="getPersons()" color="warn" class="boton">Buscar Fecha</button>
+      <button mat-raised-button (click)="getPersonByDate(inputFecha.value)" color="warn" class="boton">Buscar Fecha</button>
     </p>
   </form>
+
 </div>
 
 <br>
