@@ -31,11 +31,7 @@ export class DeletePersonComponent implements OnInit {
   }
 
   deletePerson(idBorrar: string){
-    console.log('-----');
-    console.log(idBorrar);
-    console.log('-----');
     const value = idBorrar.substring(0, 36);
-    console.log(value);
     return this.http.delete(`${this.ROOT_URL}/${value}`).toPromise().then(data => {
       this.getPersons();
     });

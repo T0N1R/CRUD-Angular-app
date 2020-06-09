@@ -29,7 +29,6 @@ export class InsertPersonComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

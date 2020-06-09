@@ -28,6 +28,22 @@ export class SearchPersonComponent implements OnInit {
     });
   }
 
+  getPersonsById(idValue: string){
+    this.personsList = [];
+    this.http.get(this.ROOT_URL + '/' + idValue).toPromise().then(data => {
+      console.log(data);
+      /*
+      const count = Object.keys(data).length;
+      for (let n = 0; n < count; n++){
+        const sendToList = {
+          idPersona: idValue, nombrePersona: data[n].nombre, apellidoPersona: data[n].apellido, fechaNacimiento: data[n].nacimiento
+        };
+        this.personsList.push(sendToList);
+      }
+       */
+    });
+  }
+
   ngOnInit(): void {
   }
 
