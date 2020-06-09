@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {MatDialog} from '@angular/material/dialog';
+import {EditPersonComponent} from '../edit-person/edit-person.component';
 
 @Component({
   selector: 'app-delete-person',
@@ -12,7 +14,7 @@ export class DeletePersonComponent implements OnInit {
 
   personsList = [{idPersona: null, nombrePersona: '-', apellidoPersona: '-', fechaNacimiento: '-'}];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dialog: MatDialog) {}
 
   getPersons(){
     this.personsList = [];
@@ -34,12 +36,19 @@ export class DeletePersonComponent implements OnInit {
     console.log('-----');
     const value = idBorrar.substring(0, 36);
     console.log(value);
-    // this.http.delete<void>(`${this.ROOT_URL}/${value}`);
     return this.http.delete(`${this.ROOT_URL}/${value}`).toPromise().then(data => {
       this.getPersons();
     });
-    // this.getPersons();
   }
+
+  editPerson(idPersona: string, nombrePersona: string, apellidoPersona: string, fechaNacimiento: string){
+    // tslint:disable-next-line:max-line-length
+    const dialogRef = this.dialog.open(EditPersonComponent, {data: {id: idPersona, nombre: nombrePersona, apellido: apellidoPersona, fecha: fechaNacimiento}});
+    dialogRef.afterClosed().subscribe(result => {
+      this.getPersons();
+    });
+  }
+
 
   ngOnInit(): void {
     this.getPersons();

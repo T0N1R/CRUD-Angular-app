@@ -19,6 +19,9 @@ import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditPersonComponent } from './edit-person/edit-person.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     NavBarComponent,
     InsertPersonComponent,
     HomeComponent,
-    DeletePersonComponent
+    DeletePersonComponent,
+    EditPersonComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatTableModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+}
+form {
+  display: inline-block;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+

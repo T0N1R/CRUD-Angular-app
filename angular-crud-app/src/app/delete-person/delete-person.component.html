@@ -1,4 +1,4 @@
-<h1 class="container">Borrar Persona</h1>
+<h1 class="container">Editar/Borrar Persona</h1>
 
 <div class="otrocontainer">
   <form class="example-form">
@@ -24,18 +24,18 @@
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Fecha de nacimiento</th>
-        <th scope="col">ID</th>
+        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let person of personsList; index as i">
-        <th scope="row">{{i + 1}}</th>
         <th scope="row">{{person.nombrePersona}}</th>
         <th scope="row">{{person.apellidoPersona}}</th>
         <th scope="row">{{person.fechaNacimiento}}</th>
         <th scope="row">{{person.idPersona}}</th>
-        <th scope="row"><mat-icon (click)="deletePerson(person.idPersona)">delete</mat-icon></th>
+        <th scope="row"><mat-icon (click)="editPerson(person.idPersona, person.nombrePersona, person.apellidoPersona, person.fechaNacimiento)">edit</mat-icon></th>
+        <th scope="row"><mat-icon class="botonDelete" (click)="deletePerson(person.idPersona)">delete</mat-icon></th>
       </tr>
       </tbody>
     </table>
