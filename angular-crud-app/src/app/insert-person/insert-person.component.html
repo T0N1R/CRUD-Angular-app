@@ -1,3 +1,4 @@
+<br>
 <h1 class="container">Ingresar Usuario</h1>
 
 <div class="container">
@@ -6,18 +7,18 @@
     <p>
       <mat-form-field class="example-full-width"  >
         <mat-label>Nombre</mat-label>
-        <input matInput #inputNombre>
+        <input matInput required #inputNombre>
       </mat-form-field>
       <br>
       <mat-form-field class="example-full-width">
         <mat-label>Apellido</mat-label>
-        <input matInput #inputApellido>
+        <input matInput required #inputApellido >
       </mat-form-field>
     </p>
 
     <mat-form-field style="width: 180px">
       <mat-label>Fecha de nacimiento</mat-label>
-      <input matInput [matDatepicker]="picker" #inputFecha>
+      <input matInput required [matDatepicker]="picker" #inputFecha>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
     </mat-form-field>

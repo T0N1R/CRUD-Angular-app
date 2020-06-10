@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EditPersonComponent } from './edit-person/edit-person.component';
+import { NotifyInsertComponent } from './notify-insert/notify-insert.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
     InsertPersonComponent,
     HomeComponent,
     DeletePersonComponent,
-    EditPersonComponent
+    EditPersonComponent,
+    NotifyInsertComponent
   ],
   imports: [
     BrowserModule,

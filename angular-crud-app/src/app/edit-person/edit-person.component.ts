@@ -22,15 +22,15 @@ export class EditPersonComponent implements OnInit {
 
     const ROOT_URL = '/hello/persons/' + constantID;
 
-    this.http.put(ROOT_URL, putData).toPromise().then(
-      data => {
-        console.log('se ha modificado una persona');
-      }
-    );
+    if (newNombre !== '' && newApellido !== '' && newFecha !== ''){
+      this.http.put(ROOT_URL, putData).toPromise().then(
+        data => {
+          console.log('se ha modificado una persona');
+        }
+      );
+    }
   }
 
   ngOnInit(): void {}
-
-
 
 }

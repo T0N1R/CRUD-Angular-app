@@ -7,9 +7,8 @@ import {DeletePersonComponent} from './delete-person/delete-person.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: SearchPersonComponent},
   {path: 'insert', component: InsertPersonComponent},
-  {path: 'search', component: SearchPersonComponent},
   {path: 'delete', component: DeletePersonComponent}
 ];
 

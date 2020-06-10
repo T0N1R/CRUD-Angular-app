@@ -14,6 +14,7 @@ export class SearchPersonComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+  // http request GET que obtiene todos las personas y la agrega en la lista personList para presentar en la tabla
   getPersons(){
     this.personsList = [];
     this.http.get(this.ROOT_URL).toPromise().then(data => {
@@ -28,6 +29,7 @@ export class SearchPersonComponent implements OnInit {
     });
   }
 
+  // de la lista llenada por el request get, obtener el
   getPersonsById(idValue: string){
     this.personsList = [];
     this.http.get(this.ROOT_URL).toPromise().then(data => {
@@ -42,6 +44,10 @@ export class SearchPersonComponent implements OnInit {
           this.personsList.push(sendToList);
         }
       }
+    });
+
+    this.http.get(this.ROOT_URL + '/' + idValue).toPromise().then(data => {
+      console.log(data);
     });
   }
 

@@ -30,6 +30,7 @@ export class DeletePersonComponent implements OnInit {
     });
   }
 
+  // borrar persona en base al id
   deletePerson(idBorrar: string){
     const value = idBorrar.substring(0, 36);
     return this.http.delete(`${this.ROOT_URL}/${value}`).toPromise().then(data => {
@@ -37,10 +38,12 @@ export class DeletePersonComponent implements OnInit {
     });
   }
 
+  // el presionar el boton de editar, abre EditPersoncomponent, para poder modificar los campos de nombre, apellido y fecha
   editPerson(idPersona: string, nombrePersona: string, apellidoPersona: string, fechaNacimiento: string){
     // tslint:disable-next-line:max-line-length
     const dialogRef = this.dialog.open(EditPersonComponent, {data: {id: idPersona, nombre: nombrePersona, apellido: apellidoPersona, fecha: fechaNacimiento}});
     dialogRef.afterClosed().subscribe(result => {
+      // se vuelve a correr getPersons()
       this.getPersons();
     });
   }
