@@ -2,7 +2,6 @@
 <h1 class="container">Inicio</h1>
 <button mat-raised-button (click)="getPersons()" color="warn" class="botonTodos">Mostrar Todos</button>
 <br>
-
 <div class="container">
   <form class="example-form">
     <p>
@@ -31,38 +30,35 @@
       <button mat-raised-button (click)="getPersonByDate(inputFecha.value)" color="warn" class="boton">Buscar Fecha</button>
     </p>
   </form>
-
 </div>
 
-<br>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+  </ng-container>
 
-<div class="container">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
 
-  <div class="inContainer">
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+  </ng-container>
 
-    <table class="tabla">
-      <thead>
-      <tr>
-        <th scope="col">Índice</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">Fecha de nacimiento</th>
-        <th scope="col">ID</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let person of personsList; index as i">
-        <th scope="row">{{i + 1}}</th>
-        <th scope="row">{{person.nombrePersona}}</th>
-        <th scope="row">{{person.apellidoPersona}}</th>
-        <th scope="row">{{person.fechaNacimiento}}</th>
-        <th scope="row">{{person.idPersona}}</th>
-      </tr>
-      </tbody>
-    </table>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+  </ng-container>
 
-  </div>
-
-</div>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
 
 
