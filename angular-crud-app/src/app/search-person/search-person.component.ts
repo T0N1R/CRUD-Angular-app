@@ -120,8 +120,8 @@ export class SearchPersonComponent implements OnInit {
 
       for (let n = 0; n < count; n++) {
         const sendToList = {position: data[n].nombre, name: data[n].apellido, weight: data[n].nacimiento, symbol: data[n].id};
-        const lookingForDate = sendToList.weight;
-        if (lookingForDate === dateValue){
+        const lookingForId = sendToList.weight;
+        if (lookingForId === dateValue){
           this.personsTable.push(sendToList);
         }
       }
