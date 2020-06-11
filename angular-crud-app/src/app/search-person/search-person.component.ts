@@ -31,12 +31,13 @@ export class SearchPersonComponent implements OnInit {
 
   // http request GET que obtiene todos las personas y la agrega en la lista personList para presentar en la tabla
   getPersons(){
-    this.personsList = [];
+    this.personsTable = [];
     this.http.get(this.ROOT_URL).toPromise().then(data => {
       const count = Object.keys(data).length;
 
       for (let n = 0; n < count; n++) {
         const sendToList = {position: data[n].nombre, name: data[n].apellido, weight: data[n].nacimiento, symbol: data[n].id};
+        const lookingForId = sendToList.symbol;
         this.personsTable.push(sendToList);
       }
 
@@ -49,19 +50,22 @@ export class SearchPersonComponent implements OnInit {
 
   // de la lista llenada por el request get, obtener el
   getPersonsById(idValue: string){
-    this.personsList = [];
+    this.personsTable = [];
     this.http.get(this.ROOT_URL).toPromise().then(data => {
       const count = Object.keys(data).length;
 
       for (let n = 0; n < count; n++) {
-        const sendToList = {
-          idPersona: data[n].id, nombrePersona: data[n].nombre, apellidoPersona: data[n].apellido, fechaNacimiento: data[n].nacimiento
-        };
-        const lookingForId = sendToList.idPersona;
+        const sendToList = {position: data[n].nombre, name: data[n].apellido, weight: data[n].nacimiento, symbol: data[n].id};
+        const lookingForId = sendToList.symbol;
         if (lookingForId === idValue){
-          this.personsList.push(sendToList);
+          this.personsTable.push(sendToList);
         }
       }
+
+      const newELEMENT: PeriodicElement[] = this.personsTable;
+
+      this.dataSource = newELEMENT;
+
     });
 
     this.http.get(this.ROOT_URL + '/' + idValue).toPromise().then(data => {
@@ -70,54 +74,68 @@ export class SearchPersonComponent implements OnInit {
   }
 
   getPersonByName(nameValue: string){
-    this.personsList = [];
+    this.personsTable = [];
     this.http.get(this.ROOT_URL).toPromise().then(data => {
       const count = Object.keys(data).length;
 
       for (let n = 0; n < count; n++) {
-        const sendToList = {
-          idPersona: data[n].id, nombrePersona: data[n].nombre, apellidoPersona: data[n].apellido, fechaNacimiento: data[n].nacimiento
-        };
-        const lookingForId = sendToList.nombrePersona;
-        if (lookingForId === nameValue){
-          this.personsList.push(sendToList);
+        const sendToList = {position: data[n].nombre, name: data[n].apellido, weight: data[n].nacimiento, symbol: data[n].id};
+        const lookingForName = sendToList.position;
+        if (lookingForName === nameValue){
+          this.personsTable.push(sendToList);
         }
       }
+
+      const newELEMENT: PeriodicElement[] = this.personsTable;
+
+      this.dataSource = newELEMENT;
+
     });
   }
 
   getPersonByLastName(lastnameValue: string){
-    this.personsList = [];
+    this.personsTable = [];
     this.http.get(this.ROOT_URL).toPromise().then(data => {
       const count = Object.keys(data).length;
 
       for (let n = 0; n < count; n++) {
-        const sendToList = {
-          idPersona: data[n].id, nombrePersona: data[n].nombre, apellidoPersona: data[n].apellido, fechaNacimiento: data[n].nacimiento
-        };
-        const lookingForId = sendToList.apellidoPersona;
-        if (lookingForId === lastnameValue){
-          this.personsList.push(sendToList);
+        const sendToList = {position: data[n].nombre, name: data[n].apellido, weight: data[n].nacimiento, symbol: data[n].id};
+        const lookingForLastName = sendToList.name;
+        if (lookingForLastName === lastnameValue){
+          this.personsTable.push(sendToList);
         }
       }
+
+      const newELEMENT: PeriodicElement[] = this.personsTable;
+
+      this.dataSource = newELEMENT;
+
     });
   }
 
   getPersonByDate(dateValue: string){
-    this.personsList = [];
+    this.personsTable = [];
     this.http.get(this.ROOT_URL).toPromise().then(data => {
       const count = Object.keys(data).length;
 
       for (let n = 0; n < count; n++) {
-        const sendToList = {
-          idPersona: data[n].id, nombrePersona: data[n].nombre, apellidoPersona: data[n].apellido, fechaNacimiento: data[n].nacimiento
-        };
-        const lookingForId = sendToList.fechaNacimiento;
-        if (lookingForId === dateValue){
-          this.personsList.push(sendToList);
+        const sendToList = {position: data[n].nombre, name: data[n].apellido, weight: data[n].nacimiento, symbol: data[n].id};
+        const lookingForDate = sendToList.weight;
+        if (lookingForDate === dateValue){
+          this.personsTable.push(sendToList);
         }
       }
+
+      const newELEMENT: PeriodicElement[] = this.personsTable;
+
+      this.dataSource = newELEMENT;
+
     });
+  }
+
+  mostrarTodos(){
+    this.getPersons();
+    console.log('yes');
   }
 
 
